@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		34C24D2CF1951D46A97465C9 /* Pods_OnTheMap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A7EF7A7433EDF757CBB493E /* Pods_OnTheMap.framework */; };
 		F682ACA11F307A7B00BF29F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F682ACA01F307A7B00BF29F0 /* AppDelegate.swift */; };
-		F682ACA31F307A7B00BF29F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F682ACA21F307A7B00BF29F0 /* ViewController.swift */; };
+		F682ACA31F307A7B00BF29F0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F682ACA21F307A7B00BF29F0 /* LoginViewController.swift */; };
 		F682ACA61F307A7B00BF29F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F682ACA41F307A7B00BF29F0 /* Main.storyboard */; };
 		F682ACA81F307A7B00BF29F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F682ACA71F307A7B00BF29F0 /* Assets.xcassets */; };
 		F682ACAB1F307A7B00BF29F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F682ACA91F307A7B00BF29F0 /* LaunchScreen.storyboard */; };
+		F6D3B94F1F3199E300CA8202 /* OTMClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3B94E1F3199E300CA8202 /* OTMClient.swift */; };
+		F6D3B9511F319A3F00CA8202 /* OTMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D3B9501F319A3F00CA8202 /* OTMConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5A7EF7A7433EDF757CBB493E /* Pods_OnTheMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OnTheMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61C3CDC362085875FFE0BF90 /* Pods-OnTheMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnTheMap/Pods-OnTheMap.debug.xcconfig"; sourceTree = "<group>"; };
+		DBD9BD2528DB862220A7163B /* Pods-OnTheMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnTheMap/Pods-OnTheMap.release.xcconfig"; sourceTree = "<group>"; };
 		F682AC9D1F307A7B00BF29F0 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F682ACA01F307A7B00BF29F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F682ACA21F307A7B00BF29F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F682ACA21F307A7B00BF29F0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F682ACA51F307A7B00BF29F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F682ACA71F307A7B00BF29F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F682ACAA1F307A7B00BF29F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F682ACAC1F307A7B00BF29F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6D3B94E1F3199E300CA8202 /* OTMClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMClient.swift; sourceTree = "<group>"; };
+		F6D3B9501F319A3F00CA8202 /* OTMConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34C24D2CF1951D46A97465C9 /* Pods_OnTheMap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		268BA23CC825C05E300F70BB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61C3CDC362085875FFE0BF90 /* Pods-OnTheMap.debug.xcconfig */,
+				DBD9BD2528DB862220A7163B /* Pods-OnTheMap.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F66188EC1F3223D400F67B6F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F6D3B94E1F3199E300CA8202 /* OTMClient.swift */,
+				F6D3B9501F319A3F00CA8202 /* OTMConstants.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F66188ED1F3223EC00F67B6F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F682ACA21F307A7B00BF29F0 /* LoginViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		F682AC941F307A7B00BF29F0 = {
 			isa = PBXGroup;
 			children = (
 				F682AC9F1F307A7B00BF29F0 /* OnTheMap */,
 				F682AC9E1F307A7B00BF29F0 /* Products */,
+				F6E701081F30C4A000D8280F /* Frameworks */,
+				268BA23CC825C05E300F70BB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +91,23 @@
 		F682AC9F1F307A7B00BF29F0 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				F66188ED1F3223EC00F67B6F /* Controller */,
+				F66188EC1F3223D400F67B6F /* Model */,
 				F682ACA01F307A7B00BF29F0 /* AppDelegate.swift */,
-				F682ACA21F307A7B00BF29F0 /* ViewController.swift */,
 				F682ACA41F307A7B00BF29F0 /* Main.storyboard */,
 				F682ACA71F307A7B00BF29F0 /* Assets.xcassets */,
 				F682ACA91F307A7B00BF29F0 /* LaunchScreen.storyboard */,
 				F682ACAC1F307A7B00BF29F0 /* Info.plist */,
 			);
 			path = OnTheMap;
+			sourceTree = "<group>";
+		};
+		F6E701081F30C4A000D8280F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A7EF7A7433EDF757CBB493E /* Pods_OnTheMap.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +117,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F682ACAF1F307A7B00BF29F0 /* Build configuration list for PBXNativeTarget "OnTheMap" */;
 			buildPhases = (
+				96BC43E8CE69B2D0419C1C4F /* [CP] Check Pods Manifest.lock */,
 				F682AC991F307A7B00BF29F0 /* Sources */,
 				F682AC9A1F307A7B00BF29F0 /* Frameworks */,
 				F682AC9B1F307A7B00BF29F0 /* Resources */,
+				20D8A19F25B84B80B886CBEE /* [CP] Embed Pods Frameworks */,
+				BCA4D2C5724FA1FD3B05F725 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,12 +180,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		20D8A19F25B84B80B886CBEE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OnTheMap/Pods-OnTheMap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96BC43E8CE69B2D0419C1C4F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BCA4D2C5724FA1FD3B05F725 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OnTheMap/Pods-OnTheMap-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F682AC991F307A7B00BF29F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F682ACA31F307A7B00BF29F0 /* ViewController.swift in Sources */,
+				F682ACA31F307A7B00BF29F0 /* LoginViewController.swift in Sources */,
+				F6D3B94F1F3199E300CA8202 /* OTMClient.swift in Sources */,
+				F6D3B9511F319A3F00CA8202 /* OTMConstants.swift in Sources */,
 				F682ACA11F307A7B00BF29F0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,9 +359,12 @@
 		};
 		F682ACB01F307A7B00BF29F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61C3CDC362085875FFE0BF90 /* Pods-OnTheMap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = OnTheMap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IceApinan.OnTheMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,9 +374,12 @@
 		};
 		F682ACB11F307A7B00BF29F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBD9BD2528DB862220A7163B /* Pods-OnTheMap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = OnTheMap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IceApinan.OnTheMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -301,6 +406,7 @@
 				F682ACB11F307A7B00BF29F0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
