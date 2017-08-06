@@ -2,53 +2,48 @@
 //  OTMConstants.swift
 //  OnTheMap
 //
-//  Created by IceApinan on 2/8/17.
+//  Created by IceApinan on 5/8/17.
 //  Copyright © 2017 IceApinan. All rights reserved.
 //
 
-extension OTMClient {
+import Foundation
+
+// MARK: Constants
+struct OTMConstants {
+    // MARK : General
+    static let ApiScheme = "https"
+    struct Parse
+    {
+        // MARK : URLs
+        static let ApiHost = "parse.udacity.com"
+        static let ApiPath = "/parse/classes"
     
-    // MARK: Constants
-    struct Constants {
-        
-            // MARK : URLs
-            static let ApiScheme = "https"
-            static let ApiHost = "parse.udacity.com"
-            static let ApiPath = "/parse/classes"
-        
-        // MARK : Parse API
-         struct ParaseAPI {
-            // MARK: API Keys
-            static let ApiKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
-            static let ParseApplicationID = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
-            // MARK : Headers
-            static let ApplicationIDForHeaderField = "X-Parse-Application-Id"
-            static let ApiKeyForHeaderField = "X-Parse-REST-API-Key"
-        }
-            struct UdacityAPI {
-            // MARK: URLs
-            static let ApiHost = "www.udacity.com"
-            static let ApiPath = "/api"
-            static let PostSessionURL = "https://www.udacity.com/api/session"
-            static let UserID = "user_id"
-        }
-        
-        struct OptionalParameterKeys {
-            static let Limit = "limit"
-            static let Skip = "skip"
-            static let Order = "order"
-        }
-        struct RequiredParameterKeys {
-            
-        }
-       
+        // MARK: API Keys
+        static let ApiKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
+        static let ParseApplicationID = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
+    
+        // MARK : Headers
+        static let ApplicationIDForHeaderField = "X-Parse-Application-Id"
+        static let ApiKeyForHeaderField = "X-Parse-REST-API-Key"
     }
-    
-    struct Methods {
-        static let PublicUserData = "/users/<user_id>"
+    struct Udacity
+    {
+        // MARK : URLs
+        static let ApiHost = "www.udacity.com"
+        static let ApiPath = "/api"
+        
+        // MARK : Methods
+        static let Session = "/session"
+        static let getPublicUserData = "/users/<user_id>"
+
     }
     
     struct JSONResponseKeys {
+        // Udacity
+        static let Session = "session"
+        static let SessionID = "id"
+        
+        // Parse
         static let objectId = "objectId"
         static let uniqueKey = "uniqueKey"
         static let firstName = "firstName"
@@ -62,6 +57,13 @@ extension OTMClient {
         static let ACL = "ACL"
     }
     
+
+        
+ }
+
+
+    
+
+
     
     
-}

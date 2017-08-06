@@ -6,11 +6,10 @@
 //  Copyright © 2017 IceApinan. All rights reserved.
 //
 
-import UIKit
 
 struct StudentInformation {
     
-    // MARK: Properties
+  // MARK: Properties
     let objectId : String
     let uniqueKey : String?
     let firstName : String
@@ -25,17 +24,18 @@ struct StudentInformation {
     
     // MARK: Initializers
     init(dictionary : [String: AnyObject]) {
-        objectId = dictionary[OTMClient.JSONResponseKeys.objectId] as! String
-        uniqueKey = dictionary[OTMClient.JSONResponseKeys.uniqueKey] as? String
-        firstName = dictionary[OTMClient.JSONResponseKeys.firstName] as! String
-        lastName = dictionary[OTMClient.JSONResponseKeys.lastName] as! String
-        mapString = dictionary[OTMClient.JSONResponseKeys.mapString] as! String
-        mediaURL = dictionary[OTMClient.JSONResponseKeys.mediaURL] as! String
-        latitude = dictionary[OTMClient.JSONResponseKeys.latitude] as! Float
-        longitude = dictionary[OTMClient.JSONResponseKeys.longitude] as! Float
-        createdAt = dictionary[OTMClient.JSONResponseKeys.createdAt] as! String
-        updatedAt = dictionary[OTMClient.JSONResponseKeys.updatedAt] as! String
-        ACL = dictionary[OTMClient.JSONResponseKeys.ACL] as! String
+        objectId = dictionary[OTMConstants.JSONResponseKeys.objectId] as! String
+        uniqueKey = dictionary[OTMConstants.JSONResponseKeys.uniqueKey] as? String
+        firstName = dictionary[OTMConstants.JSONResponseKeys.firstName] as! String
+        lastName = dictionary[OTMConstants.JSONResponseKeys.lastName] as! String
+        mapString = dictionary[OTMConstants.JSONResponseKeys.mapString] as! String
+        mediaURL = dictionary[OTMConstants.JSONResponseKeys.mediaURL] as! String
+        latitude = dictionary[OTMConstants.JSONResponseKeys.latitude] as! Float
+        longitude = dictionary[OTMConstants.JSONResponseKeys.longitude] as! Float
+        createdAt = dictionary[OTMConstants.JSONResponseKeys.createdAt] as! String
+        updatedAt = dictionary[OTMConstants.JSONResponseKeys.updatedAt] as! String
+        ACL = dictionary[OTMConstants.JSONResponseKeys.ACL] as! String
+
     }
     
     
