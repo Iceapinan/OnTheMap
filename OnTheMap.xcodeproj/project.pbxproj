@@ -17,6 +17,9 @@
 		F682ACA61F307A7B00BF29F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F682ACA41F307A7B00BF29F0 /* Main.storyboard */; };
 		F682ACA81F307A7B00BF29F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F682ACA71F307A7B00BF29F0 /* Assets.xcassets */; };
 		F682ACAB1F307A7B00BF29F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F682ACA91F307A7B00BF29F0 /* LaunchScreen.storyboard */; };
+		F6CDE3551F3862A0008082C2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDE3541F3862A0008082C2 /* MapViewController.swift */; };
+		F6CDE3571F3869D0008082C2 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDE3561F3869D0008082C2 /* ParseClient.swift */; };
+		F6CDE35A1F386F86008082C2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDE3591F386F86008082C2 /* ListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		F682ACA71F307A7B00BF29F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F682ACAA1F307A7B00BF29F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F682ACAC1F307A7B00BF29F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6CDE3541F3862A0008082C2 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F6CDE3561F3869D0008082C2 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
+		F6CDE3591F386F86008082C2 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +68,7 @@
 			children = (
 				F646F4961F34473100DE38F9 /* StudentInformation.swift */,
 				F61E5F761F35BD8A00806882 /* OTMConstants.swift */,
+				F6CDE3561F3869D0008082C2 /* ParseClient.swift */,
 				F64710C91F35C4D400E9854B /* UdacityClient.swift */,
 				F67886071F3754B6004C8F96 /* UdacityConvenience.swift */,
 			);
@@ -72,6 +79,8 @@
 			isa = PBXGroup;
 			children = (
 				F682ACA21F307A7B00BF29F0 /* LoginViewController.swift */,
+				F6CDE3541F3862A0008082C2 /* MapViewController.swift */,
+				F6CDE3591F386F86008082C2 /* ListViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -97,6 +106,7 @@
 		F682AC9F1F307A7B00BF29F0 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				F6CDE3581F386B8D008082C2 /* View */,
 				F66188ED1F3223EC00F67B6F /* Controller */,
 				F66188EC1F3223D400F67B6F /* Model */,
 				F682ACA01F307A7B00BF29F0 /* AppDelegate.swift */,
@@ -106,6 +116,13 @@
 				F682ACAC1F307A7B00BF29F0 /* Info.plist */,
 			);
 			path = OnTheMap;
+			sourceTree = "<group>";
+		};
+		F6CDE3581F386B8D008082C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		F6E701081F30C4A000D8280F /* Frameworks */ = {
@@ -240,11 +257,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F64710CA1F35C4D400E9854B /* UdacityClient.swift in Sources */,
+				F6CDE35A1F386F86008082C2 /* ListViewController.swift in Sources */,
 				F682ACA31F307A7B00BF29F0 /* LoginViewController.swift in Sources */,
 				F646F4971F34473100DE38F9 /* StudentInformation.swift in Sources */,
 				F61E5F771F35BD8A00806882 /* OTMConstants.swift in Sources */,
 				F682ACA11F307A7B00BF29F0 /* AppDelegate.swift in Sources */,
 				F67886081F3754B6004C8F96 /* UdacityConvenience.swift in Sources */,
+				F6CDE3571F3869D0008082C2 /* ParseClient.swift in Sources */,
+				F6CDE3551F3862A0008082C2 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
