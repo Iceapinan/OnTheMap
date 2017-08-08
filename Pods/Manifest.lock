@@ -11,18 +11,21 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.22.1):
     - FBSDKCoreKit
+  - ReachabilitySwift (3)
 
 DEPENDENCIES:
   - FBSDKCoreKit (~> 4.22.1)
   - FBSDKLoginKit (~> 4.22.1)
   - FBSDKShareKit (~> 4.22.1)
+  - ReachabilitySwift (~> 3)
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FBSDKCoreKit: 9c2daf0162214d6d2e21cf8208a9c6c2a2e42b9c
   FBSDKLoginKit: 00cf28916b9f0169763a3d61985d745b579fe304
   FBSDKShareKit: 1cbd0fdc2bb3277dd3522512855dcf1f4088f734
+  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
 
-PODFILE CHECKSUM: 53d0e9184908104d905772b616c33d6dcb697df4
+PODFILE CHECKSUM: 2b529981bd72335627ec94b76a859bb85114fa16
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.1.1

@@ -38,5 +38,16 @@ struct StudentInformation {
 
     }
     
-    
+    static func moviesFromResults(_ results: [[String:AnyObject]]) -> [StudentInformation] {
+        
+        var students = [StudentInformation]()
+        
+        for result in results {
+            students.append(StudentInformation(dictionary: result))
+        }
+        
+        return students
+    }
+
+
 }

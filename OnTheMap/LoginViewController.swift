@@ -37,15 +37,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     }
     
     
-    func alertShow(title : String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.cancel, handler: { (alertAction : UIAlertAction!) in
-            self.dismiss(animated: true, completion: nil)
-        }))
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-       
+    
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         if (emailTextField.text?.isEmpty)! && (passwordTextField.text?.isEmpty)! {
@@ -57,8 +49,17 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
            alertShow(title: "Error!", message: "Please enter your password")
         } else {
           
-            UdacityClient.sharedInstance().getUdacitySessionID(email: emailTextField.text!, password: passwordTextField.text!, completionHandler: { (results, error) in
-                
+            UdacityClient.sharedInstance().getUdacitySessionID(email: emailTextField.text!, password: passwordTextField.text!, completionHandler: { (id, error) in
+                if let error = error {
+                    DispatchQueue.main.async {
+                    self.alertShow(title: "Error!", message: error)
+                    }
+                }
+                else {
+                    DispatchQueue.main.async {
+                    self.presentViewControllerWithIdentifier(identifier: "tabBarViewController", animated: true, completion: nil)
+                    }
+                }
             })
             
         }
@@ -81,6 +82,25 @@ extension LoginViewController : UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
+    
+}
+
+extension UIViewController {
+    
+    func alertShow(title : String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.cancel, handler: { (alertAction : UIAlertAction!) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+    func presentViewControllerWithIdentifier(identifier: String, animated: Bool = true, completion: (() -> Void)? = nil) {
+        let controller = storyboard!.instantiateViewController(withIdentifier: identifier)
+        present(controller, animated: animated, completion: completion)
+    }
+
     
 }
 

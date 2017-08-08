@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BEF7E6E85DB5CDE5D7A18F4F2EB8494B"
-               BuildableName = "FBSDKCoreKit.framework"
-               BlueprintName = "FBSDKCoreKit"
+               BlueprintIdentifier = "AED3072B2B648454494C3CCAC11FF841"
+               BuildableName = "ReachabilitySwift.framework"
+               BlueprintName = "ReachabilitySwift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BEF7E6E85DB5CDE5D7A18F4F2EB8494B"
-            BuildableName = "FBSDKCoreKit.framework"
-            BlueprintName = "FBSDKCoreKit"
+            BlueprintIdentifier = "AED3072B2B648454494C3CCAC11FF841"
+            BuildableName = "ReachabilitySwift.framework"
+            BlueprintName = "ReachabilitySwift"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,6 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "AED3072B2B648454494C3CCAC11FF841"
+            BuildableName = "ReachabilitySwift.framework"
+            BlueprintName = "ReachabilitySwift"
+            ReferencedContainer = "container:Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

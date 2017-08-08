@@ -20,6 +20,7 @@
 		F6CDE3551F3862A0008082C2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDE3541F3862A0008082C2 /* MapViewController.swift */; };
 		F6CDE3571F3869D0008082C2 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDE3561F3869D0008082C2 /* ParseClient.swift */; };
 		F6CDE35A1F386F86008082C2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDE3591F386F86008082C2 /* ListViewController.swift */; };
+		F6DBC5F91F38912E00B625B8 /* ParseConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6DBC5F81F38912E00B625B8 /* ParseConvenience.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		61C3CDC362085875FFE0BF90 /* Pods-OnTheMap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OnTheMap/Pods-OnTheMap.debug.xcconfig"; sourceTree = "<group>"; };
 		DBD9BD2528DB862220A7163B /* Pods-OnTheMap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnTheMap.release.xcconfig"; path = "Pods/Target Support Files/Pods-OnTheMap/Pods-OnTheMap.release.xcconfig"; sourceTree = "<group>"; };
 		F61E5F761F35BD8A00806882 /* OTMConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMConstants.swift; sourceTree = "<group>"; };
+		F62AF5BD1F39879F00EA5CA3 /* OnTheMap-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OnTheMap-Bridging-Header.h"; sourceTree = "<group>"; };
 		F646F4961F34473100DE38F9 /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		F64710C91F35C4D400E9854B /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		F67886071F3754B6004C8F96 /* UdacityConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
@@ -40,6 +42,7 @@
 		F6CDE3541F3862A0008082C2 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F6CDE3561F3869D0008082C2 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		F6CDE3591F386F86008082C2 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		F6DBC5F81F38912E00B625B8 /* ParseConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +72,7 @@
 				F646F4961F34473100DE38F9 /* StudentInformation.swift */,
 				F61E5F761F35BD8A00806882 /* OTMConstants.swift */,
 				F6CDE3561F3869D0008082C2 /* ParseClient.swift */,
+				F6DBC5F81F38912E00B625B8 /* ParseConvenience.swift */,
 				F64710C91F35C4D400E9854B /* UdacityClient.swift */,
 				F67886071F3754B6004C8F96 /* UdacityConvenience.swift */,
 			);
@@ -106,6 +110,7 @@
 		F682AC9F1F307A7B00BF29F0 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				F62AF5BD1F39879F00EA5CA3 /* OnTheMap-Bridging-Header.h */,
 				F6CDE3581F386B8D008082C2 /* View */,
 				F66188ED1F3223EC00F67B6F /* Controller */,
 				F66188EC1F3223D400F67B6F /* Model */,
@@ -163,11 +168,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = IceApinan;
 				TargetAttributes = {
 					F682AC9C1F307A7B00BF29F0 = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -231,7 +237,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BCA4D2C5724FA1FD3B05F725 /* [CP] Copy Pods Resources */ = {
@@ -261,6 +267,7 @@
 				F682ACA31F307A7B00BF29F0 /* LoginViewController.swift in Sources */,
 				F646F4971F34473100DE38F9 /* StudentInformation.swift in Sources */,
 				F61E5F771F35BD8A00806882 /* OTMConstants.swift in Sources */,
+				F6DBC5F91F38912E00B625B8 /* ParseConvenience.swift in Sources */,
 				F682ACA11F307A7B00BF29F0 /* AppDelegate.swift in Sources */,
 				F67886081F3754B6004C8F96 /* UdacityConvenience.swift in Sources */,
 				F6CDE3571F3869D0008082C2 /* ParseClient.swift in Sources */,
@@ -317,6 +324,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -342,7 +350,10 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -374,6 +385,7 @@
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__ARC_BRIDGE_CAST_NONARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
@@ -391,7 +403,10 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -401,13 +416,17 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 61C3CDC362085875FFE0BF90 /* Pods-OnTheMap.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IceApinan.OnTheMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnTheMap/OnTheMap-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -416,13 +435,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DBD9BD2528DB862220A7163B /* Pods-OnTheMap.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IceApinan.OnTheMap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnTheMap/OnTheMap-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
