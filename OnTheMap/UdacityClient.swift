@@ -13,9 +13,10 @@ class UdacityClient: NSObject {
     // shared session
     var session = URLSession.shared
     
+    
     // MARK: POST
     
-    func taskForPOSTMethod(_ method: String, jsonBody: String, completionHandlerForPOST: @escaping (_ result: AnyObject?, _ error: String?) -> Void) -> URLSessionDataTask {
+    func taskForPOSTMethod(_ method: String, jsonBody: String,  completionHandlerForPOST: @escaping (_ result: AnyObject?, _ error: String?) -> Void) -> URLSessionDataTask {
    
         let request = NSMutableURLRequest(url: udacityURLWithPath(withPathExtension: method))
         request.httpMethod = "POST"
@@ -24,12 +25,14 @@ class UdacityClient: NSObject {
         request.httpBody = jsonBody.data(using: String.Encoding.utf8)
         
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
-            if AppDelegate.reachability.currentReachabilityStatus
-            == .notReachable
-            {
-                completionHandlerForPOST(nil, "The Internet connection appears to be offline.")
+            
+            
+            /* GUARD: Was there an error? */
+            guard (error == nil) else {
+                completionHandlerForPOST(nil, error!.localizedDescription)
+                return
             }
-        
+            
             /* Was there any data returned? */
             if let data = data {
                 let range = Range(5..<data.count)
@@ -49,6 +52,8 @@ class UdacityClient: NSObject {
         
         return task
     }
+    
+   
     
     private func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: String?) -> Void) {
         

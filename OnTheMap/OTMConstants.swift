@@ -42,6 +42,8 @@ struct OTMConstants {
         // Udacity
         static let Session = "session"
         static let SessionID = "id"
+        static let Account = "account"
+        static let AccountID = "key"
         
         // Parse
         static let objectId = "objectId"

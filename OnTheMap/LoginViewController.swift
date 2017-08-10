@@ -18,6 +18,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet var loginButton: FBSDKLoginButton!
         
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.delegate = self
@@ -48,8 +49,8 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
         else if (passwordTextField.text?.isEmpty)! {
            alertShow(title: "Error!", message: "Please enter your password")
         } else {
-          
-            UdacityClient.sharedInstance().getUdacitySessionID(email: emailTextField.text!, password: passwordTextField.text!, completionHandler: { (id, error) in
+            activityIndicator.startAnimating()
+            UdacityClient.sharedInstance().getUdacityAccountID(email: emailTextField.text!, password: passwordTextField.text!, completionHandler: { (id, error) in
                 if let error = error {
                     DispatchQueue.main.async {
                     self.alertShow(title: "Error!", message: error)
@@ -57,6 +58,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 }
                 else {
                     DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
                     self.presentViewControllerWithIdentifier(identifier: "tabBarViewController", animated: true, completion: nil)
                     }
                 }

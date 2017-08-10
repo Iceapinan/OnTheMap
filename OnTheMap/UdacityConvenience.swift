@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 extension UdacityClient {
     
-    func getUdacitySessionID(email : String, password : String, completionHandler: @escaping (_ sessionID: String?, _ error: String?) -> Void) {
+    func getUdacityAccountID(email : String, password : String, completionHandler: @escaping (_ sessionID: String?, _ error: String?) -> Void) {
         let jsonBody = "{\"udacity\": {\"username\": \"\(email)\", \"password\": \"\(password)\"}}"
         let _ = taskForPOSTMethod(OTMConstants.Udacity.Session, jsonBody: jsonBody) { (results, error) in
             if let error = error
@@ -20,19 +20,23 @@ extension UdacityClient {
             else
             {
                 if let statusCode = results?.value(forKey: "status") as? Int, let jsonError = results?.value(forKey: "error") as? String {
-                    completionHandler(nil,"\(statusCode): \(jsonError) ")
+                    completionHandler(nil, "\(statusCode): \(jsonError)")
                 }
-
-                if let session = results?.value(forKey: OTMConstants.JSONResponseKeys.Session) as? [String:AnyObject] {
-                    if let id = session[OTMConstants.JSONResponseKeys.SessionID] as? String {
-                        print(id)
-                        print("YESSS")
-                        completionHandler(id, nil)
+                
+                if let session = results?.value(forKey: OTMConstants.JSONResponseKeys.Account) as? [String:AnyObject] {
+                    if let id = session[OTMConstants.JSONResponseKeys.AccountID] as? String {
+                       print(id)
+                       completionHandler(id, nil)
                     }
                 }
             }
             
         }
+    }
+    
+    func fetchStudentData(fromAccountID : String, completionHandler: @escaping (_ student: StudentInformation?, _ error: String?) -> Void) {
+        
+        
     }
 }
 

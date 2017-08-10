@@ -8,7 +8,5 @@ target 'OnTheMap' do
   # Pods for OnTheMap
   pod 'FBSDKCoreKit', '~> 4.22.1'
   pod 'FBSDKLoginKit', '~> 4.22.1'
-  pod 'FBSDKShareKit', '~> 4.22.1'
-  pod 'ReachabilitySwift', '~> 3'
-
+  pod 'FBSDKShareKit', '~> 4.22.1'  
 end
