@@ -17,7 +17,12 @@ struct OTMConstants {
         // MARK : URLs
         static let ApiHost = "parse.udacity.com"
         static let ApiPath = "/parse/classes"
-    
+        
+        
+        // MARK : Methods
+        static let StudentLocation = "/StudentLocation"
+        static let PUTStudentLocation = "/<objectId>"
+        
         // MARK: API Keys
         static let ApiKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"
         static let ParseApplicationID = "QrX47CA9cyuGewLdsL7o5Eb8iug6Em8ye0dnAbIr"
@@ -25,6 +30,21 @@ struct OTMConstants {
         // MARK : Headers
         static let ApplicationIDForHeaderField = "X-Parse-Application-Id"
         static let ApiKeyForHeaderField = "X-Parse-REST-API-Key"
+        
+        // MARK: Parameter Keys
+        struct ParameterKeys {
+            static let limit = "limit"
+            static let order = "order"
+            static let Where = "where"
+            static let uniqueKey = "uniqueKey"
+        }
+        // MARK: Parameter Values
+        struct ParameterValues {
+            static let hundred = 100
+            // minus (-) means descending order
+            static let recentlyUpdated = "-updatedAt"
+            static let recentlyCreated = "-createdAt"
+        }
     }
     struct Udacity
     {
@@ -35,10 +55,17 @@ struct OTMConstants {
         // MARK : Methods
         static let Session = "/session"
         static let getPublicUserData = "/users/<user_id>"
+        
+        // MARK: URL Keys
+        struct URLKeys {
+            static let UserID = "user_id"
+        }
 
     }
     
-    struct JSONResponseKeys {
+    // MARK: JSON
+    struct JSONResponseKeys
+    {
         // Udacity
         static let Session = "session"
         static let SessionID = "id"
@@ -56,11 +83,16 @@ struct OTMConstants {
         static let longitude = "longitude"
         static let createdAt = "createdAt"
         static let updatedAt = "updatedAt"
-        static let ACL = "ACL"
     }
     
-
-        
+    // MARK: Facebook
+    struct facebookLogin
+    {
+        static let AppID = "365362206864879"
+        static let URLSuffix = "onthemap"
+        static let URLScheme = "fb\(AppID)\(URLSuffix)"
+    }
+    
  }
 
 

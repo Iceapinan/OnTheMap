@@ -18,9 +18,8 @@ struct StudentInformation {
     let mediaURL : String
     let latitude : Float
     let longitude : Float
-    let createdAt : String //
-    let updatedAt : String //
-    let ACL : String //
+    let createdAt : String
+    let updatedAt : String
     
     // MARK: Initializers
     init(dictionary : [String: AnyObject]) {
@@ -34,7 +33,6 @@ struct StudentInformation {
         longitude = dictionary[OTMConstants.JSONResponseKeys.longitude] as! Float
         createdAt = dictionary[OTMConstants.JSONResponseKeys.createdAt] as! String
         updatedAt = dictionary[OTMConstants.JSONResponseKeys.updatedAt] as! String
-        ACL = dictionary[OTMConstants.JSONResponseKeys.ACL] as! String
 
     }
     

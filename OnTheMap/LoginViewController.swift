@@ -10,14 +10,15 @@ import UIKit
 
 import FBSDKCoreKit
 import FBSDKLoginKit
-class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
+class LoginViewController: UIViewController {
     
     // MARK: Properties
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet var loginButton: FBSDKLoginButton!
-        
+    
+    let facebookLoginManager = FBSDKLoginManager()
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,32 +51,72 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
            alertShow(title: "Error!", message: "Please enter your password")
         } else {
             activityIndicator.startAnimating()
-            UdacityClient.sharedInstance().getUdacityAccountID(email: emailTextField.text!, password: passwordTextField.text!, completionHandler: { (id, error) in
+            UdacityClient.sharedInstance().getUdacityAccountID(email: emailTextField.text!, password: passwordTextField.text!, facebookToken: nil, completionHandler: { (userID, error) in
                 if let error = error {
                     DispatchQueue.main.async {
                     self.alertShow(title: "Error!", message: error)
                     }
                 }
                 else {
+                    if let userID = userID {
+                    UdacityClient.sharedInstance().fetchStudentData(fromAccountID: userID, completionHandler: { (student, error) in
+                        DispatchQueue.main.async {
+                            self.activityIndicator.stopAnimating()
+                            self.presentViewControllerWithIdentifier(identifier: "loggedInNavigationController", animated: true, completion: {
+                                self.emailTextField.text = ""
+                                self.passwordTextField.text = ""
+                            })
+                        }
+                    })
+                }
+            }
+        })
+    }
+        
+        
+    }
+    
+    
+}
+
+extension LoginViewController: FBSDKLoginButtonDelegate {
+    
+    func currentAccessToken() -> FBSDKAccessToken! {
+        return FBSDKAccessToken.current()
+    }
+    
+    func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
+        if self.currentAccessToken() == nil {
+            activityIndicator.startAnimating()
+        }
+        return true
+    }
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if let token = result.token.tokenString {
+            UdacityClient.sharedInstance().getUdacityAccountID(email: "", password: "", facebookToken: token, completionHandler: { (userID, error) in
+                if let error = error {
                     DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                    self.presentViewControllerWithIdentifier(identifier: "tabBarViewController", animated: true, completion: nil)
+                        self.alertShow(title: "Error!", message: error)
+                    }
+                } else {
+                    if let userID = userID {
+                        UdacityClient.sharedInstance().fetchStudentData(fromAccountID: userID, completionHandler: { (student, error) in
+                            DispatchQueue.main.async {
+                                self.activityIndicator.stopAnimating()
+                                self.presentViewControllerWithIdentifier(identifier: "loggedInNavigationController", animated: true, completion: {
+                                    self.emailTextField.text = ""
+                                    self.passwordTextField.text = ""
+                                })
+                            }
+                        })
                     }
                 }
             })
-            
         }
-        
-        
-        
-    }
-    
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        print("User Logged In")
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        
+        facebookLoginManager.logOut()
     }
 }
 

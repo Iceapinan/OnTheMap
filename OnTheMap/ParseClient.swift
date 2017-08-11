@@ -15,63 +15,74 @@ class ParseClient: NSObject {
     // shared session
     var session = URLSession.shared
     
-    // MARK: GET
+    enum HTTPMethod: String {
+        case GET, POST, PUT, DELETE
+    }
+
+    // MARK: POST/GET/PUT/DELETE
     
-    func taskForGETMethod(_ method: String, parameters: [String:AnyObject], completionHandlerForGET: @escaping (_ result: AnyObject?, _ error: NSError?) -> Void) -> URLSessionDataTask {
+    func taskForHTTPMethod(_ method: String, parameters: [String:AnyObject],  httpMethod: HTTPMethod, jsonBody: String?, completionHandlerForHTTP: @escaping (_ result: AnyObject?, _ error: String?) -> Void) -> URLSessionDataTask {
         
         
         let request = NSMutableURLRequest(url: urlFromParameters(parameters, withPathExtension: method))
         
+        request.httpMethod = httpMethod.rawValue
         request.addValue(OTMConstants.Parse.ParseApplicationID, forHTTPHeaderField: OTMConstants.Parse.ApplicationIDForHeaderField)
         request.addValue(OTMConstants.Parse.ApiKey, forHTTPHeaderField: OTMConstants.Parse.ApiKeyForHeaderField)
+        
+        if let jsonBody = jsonBody {
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = jsonBody.data(using: String.Encoding.utf8)
+            
+        }
         let task = session.dataTask(with: request as URLRequest) { (data, response, error) in
             
-            func sendError(_ error: String) {
-                print(error)
-                let userInfo = [NSLocalizedDescriptionKey : error]
-                completionHandlerForGET(nil, NSError(domain: "taskForGETMethod", code: 1, userInfo: userInfo))
-            }
             
             /* GUARD: Was there an error? */
             guard (error == nil) else {
-                sendError("There was an error with your request: \(error!)")
+                completionHandlerForHTTP(nil, error!.localizedDescription)
                 return
             }
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
-                sendError("Your request returned a status code other than 2xx!")
+                print("Your request returned a status code other than 2xx!")
                 return
             }
             
-            /* GUARD: Was there any data returned? */
-            guard let data = data else {
-                sendError("No data was returned by the request!")
+            /* Was there any data returned? */
+            if let data = data {
+                /* Parse the data and use the data (happens in completion handler) */
+                self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForHTTP)
+            }
+            else {
+                completionHandlerForHTTP(nil, "No data was returned by the request!")
                 return
             }
             
-            self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForGET)
         }
         
+        /* Start the request */
         task.resume()
         
         return task
+
     }
     
     // given raw JSON, return a usable Foundation object
-    private func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: NSError?) -> Void) {
+    private func convertDataWithCompletionHandler(_ data: Data, completionHandlerForConvertData: (_ result: AnyObject?, _ error: String?) -> Void) {
         
-        var parsedResult: AnyObject! = nil
+        var parsedResult: AnyObject!
         do {
             parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
+            print(parsedResult)
+            completionHandlerForConvertData(parsedResult, nil)
         } catch {
-            let userInfo = [NSLocalizedDescriptionKey : "Could not parse the data as JSON: '\(data)'"]
-            completionHandlerForConvertData(nil, NSError(domain: "convertDataWithCompletionHandler", code: 1, userInfo: userInfo))
+            completionHandlerForConvertData(nil, "Could not parse the data as JSON: '\(data)'")
         }
         
-        completionHandlerForConvertData(parsedResult, nil)
     }
-
 
 
     private func urlFromParameters(_ parameters: [String:AnyObject], withPathExtension: String? = nil) -> URL {
