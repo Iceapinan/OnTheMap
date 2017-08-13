@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -91,13 +92,18 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtU-0S-r8Z">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtU-0S-r8Z" customClass="RoundedButton" customModule="OnTheMap" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="94" width="315" height="34"/>
-                                                        <color key="backgroundColor" red="0.11684446781873703" green="0.56068962812423706" blue="0.71609795093536377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="31" id="0wX-Bg-KQr"/>
                                                         </constraints>
                                                         <state key="normal" title="LOG IN"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="5"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h5u-DX-3WH"/>
                                                         </connections>
@@ -158,6 +164,22 @@
             </objects>
             <point key="canvasLocation" x="-2.8985507246376816" y="-75"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="119-SS-Qzp">
+            <objects>
+                <navigationController id="P08-n6-GWg" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0DO-hf-681">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="IdF-yq-hj8" kind="relationship" relationship="rootViewController" id="hk4-WU-Sds"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5p6-Qa-eP1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="569" y="-897"/>
+        </scene>
         <!--Map View Controller-->
         <scene sceneID="ovU-cu-Mrq">
             <objects>
@@ -202,8 +224,13 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="icon_refresh" id="Gb2-Yi-G1I" userLabel="Refresh"/>
-                            <barButtonItem image="icon_pin" id="gWU-Yh-0bp" userLabel="Pin"/>
+                            <barButtonItem image="icon_addpin" id="Gb2-Yi-G1I" userLabel="Add Pin">
+                                <connections>
+                                    <action selector="addPinButtonPressed:" destination="eca-GW-uRR" id="sjL-CQ-ROo"/>
+                                    <segue destination="P08-n6-GWg" kind="show" identifier="presentAddLocationVC" id="mL1-V5-7aL"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="icon_refresh" id="gWU-Yh-0bp" userLabel="Refresh"/>
                         </rightBarButtonItems>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="BFl-zn-mJ6">
@@ -263,7 +290,6 @@
                                                     <rect key="frame" x="5" y="5" width="48" height="48"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="48" id="6jI-Fs-cVe"/>
-                                                        <constraint firstAttribute="height" constant="48" id="Eoy-6M-jEP"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IceApinan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uh2-dT-VKO">
@@ -313,12 +339,76 @@
             </objects>
             <point key="canvasLocation" x="1596" y="396.25187406296857"/>
         </scene>
+        <!--Add Location-->
+        <scene sceneID="eeN-2z-g0U">
+            <objects>
+                <viewController storyboardIdentifier="InfoPostingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IdF-yq-hj8" customClass="InfoPostingViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y6I-9p-egV"/>
+                        <viewControllerLayoutGuide type="bottom" id="K7n-od-bVG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PU7-c7-zJK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_world" translatesAutoresizingMaskIntoConstraints="NO" id="q2m-8e-ODQ">
+                                <rect key="frame" x="161" y="104" width="52" height="67"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fc9-oZ-GMu">
+                                <rect key="frame" x="46" y="206" width="283" height="110"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="04R-Bm-Gsn">
+                                        <rect key="frame" x="0.0" y="0.0" width="283" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Website" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1gb-ua-hyh">
+                                        <rect key="frame" x="0.0" y="40" width="283" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRP-hk-EcH" customClass="RoundedButton" customModule="OnTheMap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="80" width="283" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="FIND LOCATION">
+                                            <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fc9-oZ-GMu" firstAttribute="top" secondItem="q2m-8e-ODQ" secondAttribute="bottom" constant="35" id="ULO-be-SBC"/>
+                            <constraint firstItem="q2m-8e-ODQ" firstAttribute="top" secondItem="Y6I-9p-egV" secondAttribute="bottom" constant="40" id="VU2-Ei-nLJ"/>
+                            <constraint firstItem="q2m-8e-ODQ" firstAttribute="centerX" secondItem="PU7-c7-zJK" secondAttribute="centerX" id="Znj-fY-bVE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fc9-oZ-GMu" secondAttribute="trailing" constant="30" id="fPS-ff-to8"/>
+                            <constraint firstItem="fc9-oZ-GMu" firstAttribute="leading" secondItem="PU7-c7-zJK" secondAttribute="leadingMargin" constant="30" id="gEe-pI-oZ7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Location" id="LTs-Fa-ftD">
+                        <barButtonItem key="backBarButtonItem" title="Cancel" id="Yfv-kc-iWF"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="soM-iA-kho" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1495" y="-1048"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="icon_addpin" width="24" height="24"/>
         <image name="icon_listview-deselected" width="75" height="50"/>
         <image name="icon_mapview-selected" width="75" height="50"/>
         <image name="icon_pin" width="24" height="24"/>
         <image name="icon_refresh" width="24" height="24"/>
+        <image name="icon_world" width="52" height="67"/>
         <image name="logo_u" width="62" height="62"/>
     </resources>
 </document>

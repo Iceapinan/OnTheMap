@@ -8,7 +8,9 @@
 
 import UIKit
 
-class TabBarViewController: UITabBarController {
+class TabBarViewController:UITabBarController {
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ParseClient.sharedInstance().getStudentLocations { (students, error) in
@@ -18,6 +20,9 @@ class TabBarViewController: UITabBarController {
     }
 
     
+    @IBAction func addPinButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "presentAddLocationVC", sender: nil)
+    }
     @IBAction func logoutPressed(_ sender: Any) {
         UdacityClient.sharedInstance().logout { (success, error) in
             if error != nil {

@@ -52,10 +52,9 @@ class UdacityClient: NSObject {
                 return
             }
             
-            /* GUARD: Did we get a successful 2XX response? */
-            guard let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 else {
+            /* Did we get a successful 2XX response? */
+            if let statusCode = (response as? HTTPURLResponse)?.statusCode, statusCode >= 200 && statusCode <= 299 {} else {
                 print("Your request returned a status code other than 2xx!")
-                return
             }
             
             /* Was there any data returned? */

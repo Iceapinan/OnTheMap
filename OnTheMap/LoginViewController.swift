@@ -51,6 +51,7 @@ class LoginViewController: UIViewController {
             UdacityClient.sharedInstance().getUdacityAccountID(email: emailTextField.text!, password: passwordTextField.text!, facebookToken: nil, completionHandler: { (userID, error) in
                 if let error = error {
                     DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
                     self.alertShow(title: "Error!", message: error)
                     }
                 }
@@ -93,6 +94,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
             UdacityClient.sharedInstance().getUdacityAccountID(email: "", password: "", facebookToken: token, completionHandler: { (userID, error) in
                 if let error = error {
                     DispatchQueue.main.async {
+                        self.activityIndicator.stopAnimating()
                         self.alertShow(title: "Error!", message: error)
                     }
                 } else {
