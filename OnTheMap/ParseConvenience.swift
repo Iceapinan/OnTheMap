@@ -19,9 +19,14 @@ extension ParseClient {
             if let error = error {
                 completionHandler(nil, error)
             }
-            
             else {
-                print(students!)
+                if let jsonLocationsDictionary = students?.value(forKey: "results") as? [[String:AnyObject]] {
+                    
+                    let students = StudentInformation.studentsFromResults(jsonLocationsDictionary)
+                    print(students)
+                    completionHandler(students, nil)
+                    
+                } else { print("NOOOOOOOO")}
             }
         }
         

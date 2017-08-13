@@ -248,24 +248,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4kF-we-Sqk">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3v3-9y-3xv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" id="Gj9-lf-6Ab" customClass="OTMTableViewCell" customModule="OnTheMap" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Gj9-lf-6Ab" id="Prg-fK-RvQ">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_pin" translatesAutoresizingMaskIntoConstraints="NO" id="VcW-Tb-rfx">
+                                                    <rect key="frame" x="5" y="5" width="48" height="48"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="48" id="6jI-Fs-cVe"/>
+                                                        <constraint firstAttribute="height" constant="48" id="Eoy-6M-jEP"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="IceApinan" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uh2-dT-VKO">
+                                                    <rect key="frame" x="61" y="5" width="314" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="https://www.iceapinan.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGB-BO-6po">
+                                                    <rect key="frame" x="61" y="30" width="314" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="VcW-Tb-rfx" firstAttribute="centerY" secondItem="Prg-fK-RvQ" secondAttribute="centerY" id="PpU-Rz-QZY"/>
+                                                <constraint firstItem="VcW-Tb-rfx" firstAttribute="top" secondItem="Prg-fK-RvQ" secondAttribute="top" constant="5" id="StM-ob-9rS"/>
+                                                <constraint firstItem="VcW-Tb-rfx" firstAttribute="leading" secondItem="Prg-fK-RvQ" secondAttribute="leading" constant="5" id="Ts0-pG-Rqp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fullnameLabel" destination="Uh2-dT-VKO" id="Bk6-7p-bZN"/>
+                                            <outlet property="pinImage" destination="VcW-Tb-rfx" id="3CH-yi-5zR"/>
+                                            <outlet property="websiteLabel" destination="pGB-BO-6po" id="d3m-HM-3QU"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.97638529539108276" green="0.97652524709701538" blue="0.97635477781295776" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="4kF-we-Sqk" firstAttribute="centerX" secondItem="uY2-d2-3eH" secondAttribute="centerX" id="9Xy-jW-SeE"/>
-                            <constraint firstItem="4kF-we-Sqk" firstAttribute="centerY" secondItem="uY2-d2-3eH" secondAttribute="centerY" constant="7.5" id="OWg-m9-pZn"/>
-                            <constraint firstItem="4kF-we-Sqk" firstAttribute="top" secondItem="uXU-aC-G10" secondAttribute="bottom" id="ZcO-xK-PH8"/>
-                            <constraint firstItem="4kF-we-Sqk" firstAttribute="leading" secondItem="uY2-d2-3eH" secondAttribute="leading" id="hi1-3r-u5e"/>
+                            <constraint firstItem="3v3-9y-3xv" firstAttribute="top" secondItem="uY2-d2-3eH" secondAttribute="top" id="Axo-cj-0Dp"/>
+                            <constraint firstAttribute="trailing" secondItem="3v3-9y-3xv" secondAttribute="trailing" id="RHa-k3-GO6"/>
+                            <constraint firstItem="COb-HW-WZc" firstAttribute="top" secondItem="3v3-9y-3xv" secondAttribute="bottom" id="Zx0-GZ-1L0"/>
+                            <constraint firstItem="3v3-9y-3xv" firstAttribute="leading" secondItem="uY2-d2-3eH" secondAttribute="leading" id="wOK-zk-fIT"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon_listview-deselected" id="W7r-YA-WcQ"/>
+                    <connections>
+                        <outlet property="studentsInfoTableView" destination="3v3-9y-3xv" id="1Un-uD-7eq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wek-YS-RwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1596.5" y="396.5"/>
+            <point key="canvasLocation" x="1596" y="396.25187406296857"/>
         </scene>
     </scenes>
     <resources>

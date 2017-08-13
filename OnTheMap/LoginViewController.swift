@@ -38,9 +38,6 @@ class LoginViewController: UIViewController {
         UIApplication.shared.openURL(URL(string: "https://auth.udacity.com/sign-up?next=https%3A%2F%2Fclassroom.udacity.com%2Fauthenticated")!)
     }
     
-    
-    
-    
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         if (emailTextField.text?.isEmpty)! && (passwordTextField.text?.isEmpty)! {
             alertShow(title: "Error!", message: "Please enter your email address and password")

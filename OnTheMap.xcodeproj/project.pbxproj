@@ -11,6 +11,8 @@
 		F61E5F771F35BD8A00806882 /* OTMConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F61E5F761F35BD8A00806882 /* OTMConstants.swift */; };
 		F646F4971F34473100DE38F9 /* StudentInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F646F4961F34473100DE38F9 /* StudentInformation.swift */; };
 		F64710CA1F35C4D400E9854B /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F64710C91F35C4D400E9854B /* UdacityClient.swift */; };
+		F65696381F40A8E700837B58 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65696371F40A8E700837B58 /* Storage.swift */; };
+		F656963A1F40ADD800837B58 /* OTMTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65696391F40ADD800837B58 /* OTMTableViewCell.swift */; };
 		F67787461F3C9395001B14F2 /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67787451F3C9395001B14F2 /* StudentModel.swift */; };
 		F677874A1F3DA769001B14F2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67787491F3DA769001B14F2 /* TabBarViewController.swift */; };
 		F67886081F3754B6004C8F96 /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67886071F3754B6004C8F96 /* UdacityConvenience.swift */; };
@@ -33,6 +35,8 @@
 		F62AF5BD1F39879F00EA5CA3 /* OnTheMap-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "OnTheMap-Bridging-Header.h"; sourceTree = "<group>"; };
 		F646F4961F34473100DE38F9 /* StudentInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentInformation.swift; sourceTree = "<group>"; };
 		F64710C91F35C4D400E9854B /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
+		F65696371F40A8E700837B58 /* Storage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		F65696391F40ADD800837B58 /* OTMTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMTableViewCell.swift; sourceTree = "<group>"; };
 		F67787451F3C9395001B14F2 /* StudentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
 		F67787491F3DA769001B14F2 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		F67886071F3754B6004C8F96 /* UdacityConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
@@ -73,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				F646F4961F34473100DE38F9 /* StudentInformation.swift */,
+				F65696371F40A8E700837B58 /* Storage.swift */,
 				F61E5F761F35BD8A00806882 /* OTMConstants.swift */,
 				F6CDE3561F3869D0008082C2 /* ParseClient.swift */,
 				F6DBC5F81F38912E00B625B8 /* ParseConvenience.swift */,
@@ -131,6 +136,7 @@
 		F6CDE3581F386B8D008082C2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F65696391F40ADD800837B58 /* OTMTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -276,10 +282,12 @@
 				F67787461F3C9395001B14F2 /* StudentModel.swift in Sources */,
 				F61E5F771F35BD8A00806882 /* OTMConstants.swift in Sources */,
 				F6DBC5F91F38912E00B625B8 /* ParseConvenience.swift in Sources */,
+				F656963A1F40ADD800837B58 /* OTMTableViewCell.swift in Sources */,
 				F682ACA11F307A7B00BF29F0 /* AppDelegate.swift in Sources */,
 				F67886081F3754B6004C8F96 /* UdacityConvenience.swift in Sources */,
 				F6CDE3571F3869D0008082C2 /* ParseClient.swift in Sources */,
 				F6CDE3551F3862A0008082C2 /* MapViewController.swift in Sources */,
+				F65696381F40A8E700837B58 /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

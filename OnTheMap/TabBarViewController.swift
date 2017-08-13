@@ -9,10 +9,12 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ParseClient.sharedInstance().getStudentLocations { (students, error) in
+            guard let students = students else { return }
+            Storage.shared.arrayofStudents = students
+        }
     }
 
     
