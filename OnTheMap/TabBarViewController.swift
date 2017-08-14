@@ -17,7 +17,7 @@ class TabBarViewController:UITabBarController {
 
     
     @IBAction func addPinPressed(_ sender: Any) {
-        performSegue(withIdentifier: "presentAddLocationVC", sender: nil)
+        self.presentViewControllerWithIdentifier(identifier: "InfoPostingViewController", animated: true, completion: nil)
     }
     
     @IBAction func refreshPressed(_ sender: Any) {
