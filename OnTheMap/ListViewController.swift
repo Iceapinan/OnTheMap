@@ -35,7 +35,7 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         if student.mediaURL != "" && UIApplication.shared.canOpenURL(URL(string: student.mediaURL)!) {
         UIApplication.shared.openURL(URL(string: student.mediaURL)!)
         } else {
-            alertShow(title: "Error!", message: "URL cannot be opened.")
+            alertShow(title: "", message: "Invalid Link")
         }
         
     }

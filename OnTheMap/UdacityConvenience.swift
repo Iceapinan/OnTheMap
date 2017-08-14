@@ -69,6 +69,7 @@ extension UdacityClient {
                 
                 if let studentInfoArray = results?.value(forKey: "user") as? [String : AnyObject] {
                     if let firstname = studentInfoArray["first_name"] as? String, let lastname = studentInfoArray["last_name"] as? String {
+                        
                         completionHandler(StudentModel(uniqueKey: fromAccountID, firstName: firstname, lastName: lastname, mediaURL: ""), nil)
                     }
                 }

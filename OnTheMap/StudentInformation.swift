@@ -6,8 +6,7 @@
 //  Copyright © 2017 IceApinan. All rights reserved.
 //
 
-
-struct StudentInformation {
+struct StudentInformation  {
   // MARK: Properties
     let objectId : String
     let uniqueKey : String

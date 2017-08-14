@@ -194,6 +194,9 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="8gz-Ey-bTw">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <connections>
+                                    <outlet property="delegate" destination="arJ-UZ-ZrN" id="CS2-pr-wcZ"/>
+                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="0.97638529539108276" green="0.97652524709701538" blue="0.97635477781295776" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -206,7 +209,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icon_mapview-selected" id="avO-O7-t2G"/>
                     <connections>
-                        <outlet property="mapView" destination="8gz-Ey-bTw" id="erl-QS-qoO"/>
+                        <outlet property="mapView" destination="8gz-Ey-bTw" id="zXD-Qe-Sd7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="94Z-C8-HMX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -226,11 +229,15 @@
                         <rightBarButtonItems>
                             <barButtonItem image="icon_addpin" id="Gb2-Yi-G1I" userLabel="Add Pin">
                                 <connections>
-                                    <action selector="addPinButtonPressed:" destination="eca-GW-uRR" id="sjL-CQ-ROo"/>
+                                    <action selector="addPinPressed:" destination="eca-GW-uRR" id="FGQ-2x-4ZC"/>
                                     <segue destination="P08-n6-GWg" kind="show" identifier="presentAddLocationVC" id="mL1-V5-7aL"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="icon_refresh" id="gWU-Yh-0bp" userLabel="Refresh"/>
+                            <barButtonItem image="icon_refresh" id="gWU-Yh-0bp" userLabel="Refresh">
+                                <connections>
+                                    <action selector="refreshPressed:" destination="eca-GW-uRR" id="Asx-pq-dZI"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="BFl-zn-mJ6">
@@ -352,7 +359,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_world" translatesAutoresizingMaskIntoConstraints="NO" id="q2m-8e-ODQ">
-                                <rect key="frame" x="161" y="104" width="52" height="67"/>
+                                <rect key="frame" x="161.5" y="104" width="52" height="67"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fc9-oZ-GMu">
                                 <rect key="frame" x="46" y="206" width="283" height="110"/>
@@ -383,6 +390,10 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2Ay-Ou-IFf">
+                                <rect key="frame" x="0.0" y="386" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -396,10 +407,15 @@
                     <navigationItem key="navigationItem" title="Add Location" id="LTs-Fa-ftD">
                         <barButtonItem key="backBarButtonItem" title="Cancel" id="Yfv-kc-iWF"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addNewLocation" destination="04R-Bm-Gsn" id="fG7-uu-KUw"/>
+                        <outlet property="addNewWebsite" destination="1gb-ua-hyh" id="68r-h0-hUN"/>
+                        <outlet property="findLocationPressed" destination="QRP-hk-EcH" id="408-5I-WT0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soM-iA-kho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1495" y="-1048"/>
+            <point key="canvasLocation" x="1493.5999999999999" y="-1048.4257871064469"/>
         </scene>
     </scenes>
     <resources>

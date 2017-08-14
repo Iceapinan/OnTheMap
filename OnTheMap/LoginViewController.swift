@@ -131,8 +131,8 @@ extension UIViewController {
     
     func alertShow(title : String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.cancel, handler: { (alertAction : UIAlertAction!) in
-            self.dismiss(animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: { (alertAction : UIAlertAction!) in
+            alert.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true, completion: nil)
         

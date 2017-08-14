@@ -13,16 +13,17 @@ class TabBarViewController:UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ParseClient.sharedInstance().getStudentLocations { (students, error) in
-            guard let students = students else { return }
-            Storage.shared.arrayofStudents = students
-        }
     }
 
     
-    @IBAction func addPinButtonPressed(_ sender: Any) {
+    @IBAction func addPinPressed(_ sender: Any) {
         performSegue(withIdentifier: "presentAddLocationVC", sender: nil)
     }
+    
+    @IBAction func refreshPressed(_ sender: Any) {
+        Storage.shared.forUseAsDataSource()
+    }
+    
     @IBAction func logoutPressed(_ sender: Any) {
         UdacityClient.sharedInstance().logout { (success, error) in
             if error != nil {

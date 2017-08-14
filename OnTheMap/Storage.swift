@@ -9,8 +9,14 @@
 import Foundation
 
 class Storage {
-    
     static let shared = Storage()
     var arrayofStudents = [StudentInformation]()
-
+    
+    func forUseAsDataSource() {
+        ParseClient.sharedInstance().getStudentLocations { (students, error) in
+            guard let students = students else { return }
+            Storage.shared.arrayofStudents = students
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getStudentLocations Finished"), object: nil)
+        }
+    }
 }

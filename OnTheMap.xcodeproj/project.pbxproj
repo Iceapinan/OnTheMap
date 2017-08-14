@@ -15,7 +15,8 @@
 		F656963A1F40ADD800837B58 /* OTMTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65696391F40ADD800837B58 /* OTMTableViewCell.swift */; };
 		F656963C1F40BBF600837B58 /* InfoPostingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656963B1F40BBF600837B58 /* InfoPostingViewController.swift */; };
 		F656963E1F40BE0200837B58 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656963D1F40BE0200837B58 /* RoundedButton.swift */; };
-		F67787461F3C9395001B14F2 /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67787451F3C9395001B14F2 /* StudentModel.swift */; };
+		F65696401F416FEE00837B58 /* OTMLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F656963F1F416FEE00837B58 /* OTMLocation.swift */; };
+		F65696421F41778200837B58 /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65696411F41778200837B58 /* StudentModel.swift */; };
 		F677874A1F3DA769001B14F2 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67787491F3DA769001B14F2 /* TabBarViewController.swift */; };
 		F67886081F3754B6004C8F96 /* UdacityConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67886071F3754B6004C8F96 /* UdacityConvenience.swift */; };
 		F682ACA11F307A7B00BF29F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F682ACA01F307A7B00BF29F0 /* AppDelegate.swift */; };
@@ -41,7 +42,8 @@
 		F65696391F40ADD800837B58 /* OTMTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMTableViewCell.swift; sourceTree = "<group>"; };
 		F656963B1F40BBF600837B58 /* InfoPostingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPostingViewController.swift; sourceTree = "<group>"; };
 		F656963D1F40BE0200837B58 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
-		F67787451F3C9395001B14F2 /* StudentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
+		F656963F1F416FEE00837B58 /* OTMLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTMLocation.swift; sourceTree = "<group>"; };
+		F65696411F41778200837B58 /* StudentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
 		F67787491F3DA769001B14F2 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		F67886071F3754B6004C8F96 /* UdacityConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConvenience.swift; sourceTree = "<group>"; };
 		F682AC9D1F307A7B00BF29F0 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +89,8 @@
 				F6DBC5F81F38912E00B625B8 /* ParseConvenience.swift */,
 				F64710C91F35C4D400E9854B /* UdacityClient.swift */,
 				F67886071F3754B6004C8F96 /* UdacityConvenience.swift */,
-				F67787451F3C9395001B14F2 /* StudentModel.swift */,
+				F65696411F41778200837B58 /* StudentModel.swift */,
+				F656963F1F416FEE00837B58 /* OTMLocation.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -284,9 +287,10 @@
 				F6CDE35A1F386F86008082C2 /* ListViewController.swift in Sources */,
 				F682ACA31F307A7B00BF29F0 /* LoginViewController.swift in Sources */,
 				F656963C1F40BBF600837B58 /* InfoPostingViewController.swift in Sources */,
+				F65696421F41778200837B58 /* StudentModel.swift in Sources */,
 				F646F4971F34473100DE38F9 /* StudentInformation.swift in Sources */,
+				F65696401F416FEE00837B58 /* OTMLocation.swift in Sources */,
 				F677874A1F3DA769001B14F2 /* TabBarViewController.swift in Sources */,
-				F67787461F3C9395001B14F2 /* StudentModel.swift in Sources */,
 				F61E5F771F35BD8A00806882 /* OTMConstants.swift in Sources */,
 				F6DBC5F91F38912E00B625B8 /* ParseConvenience.swift in Sources */,
 				F656963A1F40ADD800837B58 /* OTMTableViewCell.swift in Sources */,
