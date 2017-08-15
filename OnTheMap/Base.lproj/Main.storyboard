@@ -342,7 +342,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="2Ay-Ou-IFf">
-                                <rect key="frame" x="0.0" y="136" width="375" height="531"/>
+                                <rect key="frame" x="0.0" y="180" width="375" height="438"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BiF-SG-e3U">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
@@ -393,7 +393,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRP-hk-EcH" customClass="RoundedButton" customModule="OnTheMap" customModuleProvider="target">
-                                <rect key="frame" x="56" y="601" width="263" height="30"/>
+                                <rect key="frame" x="56" y="552" width="263" height="30"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="FIND LOCATION">
                                     <color key="titleColor" red="0.087502531707286835" green="0.48004293441772461" blue="0.99892169237136841" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -408,7 +408,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRs-jb-Ipc" customClass="RoundedButton" customModule="OnTheMap" customModuleProvider="target">
-                                <rect key="frame" x="157" y="601" width="60" height="30"/>
+                                <rect key="frame" x="157" y="552" width="60" height="30"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="F25-lm-jX1"/>
@@ -422,6 +422,9 @@
                                         <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="submitPressed:" destination="IdF-yq-hj8" eventType="touchUpInside" id="nPt-V9-oZN"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96070033310000003" green="0.96083813910000004" blue="0.96067017320000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -67,9 +67,6 @@ class LoginViewController: UIViewController {
                         else {
                            guard let student = student else { return }
                            Storage.shared.studentLoggedIn = student
-                            print("HAHAHAH")
-                           print(Storage.shared.studentLoggedIn!)
-                            print("HAHAHAH")
                            DispatchQueue.main.async {
                             self.activityIndicator.stopAnimating()
                             self.presentViewControllerWithIdentifier(identifier: "loggedInNavigationController", animated: true, completion: {
@@ -139,16 +136,19 @@ extension UIViewController {
     
     func alertShow(title : String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        DispatchQueue.main.async {
         alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: { (alertAction : UIAlertAction!) in
             alert.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true, completion: nil)
-        
+        }
     }
     
     func presentViewControllerWithIdentifier(identifier: String, animated: Bool = true, completion: (() -> Void)? = nil) {
         let controller = storyboard!.instantiateViewController(withIdentifier: identifier)
-        present(controller, animated: animated, completion: completion)
+        DispatchQueue.main.async {
+        self.present(controller, animated: animated, completion: completion)
+        }
     }
 
     

@@ -13,6 +13,7 @@ class Storage {
     static let shared = Storage()
     var arrayofStudents = [StudentInformation]()
     var studentLoggedIn : StudentUser?
+    var objectId : String?
     
     // Udacity AccountID for getting a single student location 😃
     var uniqueKey : String?

@@ -29,19 +29,25 @@ class TabBarViewController:UITabBarController {
     @IBAction func addPinPressed(_ sender: Any) {
         if let studentLoggedIn = Storage.shared.studentLoggedIn {
         ParseClient.sharedInstance().getSingleStudentLocation(uniqueKey: studentLoggedIn.uniqueKey, completionHandler: { (student, error) in
-            if student != nil {
+            if let student = student {
+                Storage.shared.objectId = student.objectId
                 // Override Existing Location
                 DispatchQueue.main.async {
                 self.overwriteAlertShow(title: "", message: "User" + " " + "\"\(studentLoggedIn.fullName)\"" + " " + "Has Already Posted a Student Location. Would You Like to Overwrite Their Location?", completion: {
-                     self.presentViewControllerWithIdentifier(identifier: "InfoPostingViewController", animated: true, completion: nil)
+                    self.presentInfoPostingVC()
                 }) }
-            } else { return }
+            }
+            else { self.presentInfoPostingVC() }
         })
-       }
+        }
     }
     
     @IBAction func refreshPressed(_ sender: Any) {
         Storage.shared.forUseAsDataSource()
+    }
+    
+    private func presentInfoPostingVC() {
+        self.presentViewControllerWithIdentifier(identifier: "InfoPostingViewController", animated: true, completion: nil)
     }
     
     @IBAction func logoutPressed(_ sender: Any) {

@@ -23,7 +23,6 @@ class ParseClient: NSObject {
     
     func taskForHTTPMethod(_ method: String, parameters: [String:AnyObject],  httpMethod: HTTPMethod, jsonBody: String?, completionHandlerForHTTP: @escaping (_ result: AnyObject?, _ error: String?) -> Void) -> URLSessionDataTask {
         
-        
         let request = NSMutableURLRequest(url: urlFromParameters(parameters, withPathExtension: method))
         
         request.httpMethod = httpMethod.rawValue

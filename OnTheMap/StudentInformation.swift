@@ -16,8 +16,8 @@ struct StudentInformation  {
     let mediaURL : String
     let latitude : Double
     let longitude : Double
-    let createdAt : String
-    let updatedAt : String
+//    var createdAt : String?
+//    var updatedAt : String?
     
     // MARK: Initializers
     init(dictionary : [String: AnyObject]) {
@@ -29,10 +29,19 @@ struct StudentInformation  {
         mediaURL = dictionary[OTMConstants.JSONResponseKeys.mediaURL] as? String ?? ""
         latitude = dictionary[OTMConstants.JSONResponseKeys.latitude] as? Double ?? 0.0
         longitude = dictionary[OTMConstants.JSONResponseKeys.longitude] as? Double ?? 0.0
-        createdAt = dictionary[OTMConstants.JSONResponseKeys.createdAt] as? String ?? ""
-        updatedAt = dictionary[OTMConstants.JSONResponseKeys.updatedAt]as? String ?? ""
+//        createdAt = dictionary[OTMConstants.JSONResponseKeys.createdAt] as? String ?? ""
+//        updatedAt = dictionary[OTMConstants.JSONResponseKeys.updatedAt]as? String ?? ""
     }
-    
+    init(objectId : String, uniqueKey: String, firstName : String, lastName: String, mapString: String, mediaURL : String, latitude: Double, longitude: Double) {
+        self.objectId = objectId
+        self.uniqueKey = uniqueKey
+        self.firstName = firstName
+        self.lastName = lastName
+        self.mapString = mapString
+        self.mediaURL = mediaURL
+        self.latitude = latitude
+        self.longitude = longitude
+    }
     
     static func studentsFromResults (_ results: [[String:AnyObject]]) -> [StudentInformation] {
         

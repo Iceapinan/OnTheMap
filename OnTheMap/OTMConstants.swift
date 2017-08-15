@@ -21,7 +21,7 @@ struct OTMConstants {
         
         // MARK : Methods
         static let StudentLocation = "/StudentLocation"
-        static let PUTStudentLocation = "/<objectId>"
+        static let PUTStudentLocation = "/StudentLocation/<objectId>"
         
         // MARK: API Keys
         static let ApiKey = "QuWThTdiRmTux3YaDseUSEpUKo7aBYM737yKd4gY"

@@ -27,7 +27,9 @@ class MapViewController: UIViewController {
     func centerMapOnLocation(location: CLLocation) {
         let regionRadius: CLLocationDistance = 10000000
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,regionRadius, regionRadius)
-        mapView.setRegion(coordinateRegion, animated: true)
+        DispatchQueue.main.async {
+        self.mapView.setRegion(coordinateRegion, animated: true)
+        }
     }
     
     func updateLocations () {

@@ -91,7 +91,6 @@ class UdacityClient: NSObject {
         
     }
     
-    
     private func udacityURLWithPath(withPathExtension: String? = nil) -> URL {
         var components = URLComponents()
         components.scheme = OTMConstants.ApiScheme
