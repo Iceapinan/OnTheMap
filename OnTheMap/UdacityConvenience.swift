@@ -26,22 +26,22 @@ extension UdacityClient {
             }
             else
             {
-                if let statusCode = results?.value(forKey: "status") as? Int, let jsonError = results?.value(forKey: "error") as? String {
+                if let statusCode = results?.value(forKey: "status") as? Int, let jsonError = results?.value(forKey: "error") as? String
+                {
                     completionHandler(nil, "\(statusCode): \(jsonError)")
                 }
                 
-                if let account = results?.value(forKey: OTMConstants.JSONResponseKeys.Account) as? [String:AnyObject] {
-                    if let id = account[OTMConstants.JSONResponseKeys.AccountID] as? String {
-                       print(id)
-                       completionHandler(id, nil)
-                     
+                else {
+                    if let account = results?.value(forKey: OTMConstants.JSONResponseKeys.Account) as? [String:AnyObject], let id = account[OTMConstants.JSONResponseKeys.AccountID] as? String  {
+                            completionHandler(id, nil)
+                        }
+                    else {
+                        completionHandler(nil, "Could not parse getUdacityAccountID")
                     }
-                }
+                  }
+               }
             }
-            
-        }
-    }
-    
+         }
     
     // MARK: Helpers
     
@@ -54,7 +54,7 @@ extension UdacityClient {
         }
     }
 
-    func fetchStudentData(fromAccountID : String, completionHandler: @escaping (_ student: StudentModel?, _ error: String?) -> Void) {
+    func fetchStudentData(fromAccountID : String, completionHandler: @escaping (_ student: StudentUser?, _ error: String?) -> Void) {
         var method = OTMConstants.Udacity.getPublicUserData
         method = substituteKeyInMethod(method, key: OTMConstants.Udacity.URLKeys.UserID, value: fromAccountID)!
         let _ = taskForHTTPMethod(method, httpMethod: .GET, jsonBody: nil) { (results, error) in
@@ -66,19 +66,21 @@ extension UdacityClient {
                 if let statusCode = results?.value(forKey: "status") as? Int, let jsonError = results?.value(forKey: "error") as? String {
                     completionHandler(nil, "\(statusCode): \(jsonError)")
                 }
+                else {
                 
                 if let studentInfoArray = results?.value(forKey: "user") as? [String : AnyObject] {
                     if let firstname = studentInfoArray["first_name"] as? String, let lastname = studentInfoArray["last_name"] as? String {
                         
-                        completionHandler(StudentModel(uniqueKey: fromAccountID, firstName: firstname, lastName: lastname, mediaURL: ""), nil)
+                        completionHandler(StudentUser(uniqueKey: fromAccountID, firstName: firstname, lastName: lastname, mediaURL: ""), nil)
                     }
                 }
-                
-                
+                else {
+                    completionHandler(nil, "Could not parse fetchStudentData")
+                }
             }
         }
-        
     }
+}
     
     
     func logout(completionHandler: @escaping (_ success: Bool, _ error: String?) -> Void) {
@@ -88,7 +90,6 @@ extension UdacityClient {
             if let error = error {
                 completionHandler(false, error)
             }
-            
             else {
                 completionHandler(true, nil)
                 print("Logged out successfully!")
@@ -100,8 +101,6 @@ extension UdacityClient {
 }
 
 
-
-    
     /* func getUdacitySessionIDWithFacebook (accessToken: String) {
         
         let jsonBody = "{\"facebook_mobile\": {\"access_token\": \"\(accessToken)\"}}"

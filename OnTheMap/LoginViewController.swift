@@ -56,25 +56,33 @@ class LoginViewController: UIViewController {
                     }
                 }
                 else {
-                    if let userID = userID {
+                    guard let userID = userID else { return }
+                    Storage.shared.uniqueKey = userID
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "We got an UserID !!"), object: nil)
                     UdacityClient.sharedInstance().fetchStudentData(fromAccountID: userID, completionHandler: { (student, error) in
-                        DispatchQueue.main.async {
+                        if let error = error {
+                            self.activityIndicator.stopAnimating()
+                            self.alertShow(title: "Error!", message: error)
+                        }
+                        else {
+                           guard let student = student else { return }
+                           Storage.shared.studentLoggedIn = student
+                            print("HAHAHAH")
+                           print(Storage.shared.studentLoggedIn!)
+                            print("HAHAHAH")
+                           DispatchQueue.main.async {
                             self.activityIndicator.stopAnimating()
                             self.presentViewControllerWithIdentifier(identifier: "loggedInNavigationController", animated: true, completion: {
                                 self.emailTextField.text = ""
                                 self.passwordTextField.text = ""
                             })
                         }
-                    })
-                }
+                    }
+                })
             }
         })
+       }
     }
-        
-        
-    }
-    
-    
 }
 
 extension LoginViewController: FBSDKLoginButtonDelegate {
@@ -143,6 +151,7 @@ extension UIViewController {
         present(controller, animated: animated, completion: completion)
     }
 
+    
     
 }
 

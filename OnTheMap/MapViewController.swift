@@ -18,6 +18,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         mapView.isRotateEnabled = false
         NotificationCenter.default.addObserver(self, selector: #selector(updateLocations), name: NSNotification.Name(rawValue: "getStudentLocations Finished"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateLocations), name: NSNotification.Name(rawValue: "getStudentLocations Error!!"), object: nil)
         Storage.shared.forUseAsDataSource()
         let initialLocation = CLLocation(latitude: 13.736717, longitude: 100.523186)
         centerMapOnLocation(location: initialLocation)
@@ -58,5 +59,7 @@ extension MapViewController : MKMapViewDelegate {
         }
         return annotationView
     }
+    
+    
     
 }

@@ -1,13 +1,14 @@
 //
-//  StudentModel.swift
+//  StudentUser.swift
 //  OnTheMap
 //
-//  Created by IceApinan on 10/8/17.
+//  Created by IceApinan on 15/8/17.
 //  Copyright © 2017 IceApinan. All rights reserved.
 //
 
+import Foundation
 
-struct StudentModel {
+struct StudentUser {
     
     let uniqueKey: String
     let firstName: String
@@ -17,7 +18,8 @@ struct StudentModel {
         return "\(firstName) \(lastName)"
     }
     
-    init(uniqueKey: String, firstName: String, lastName: String, mediaURL: String) {
+    init(uniqueKey: String, firstName: String, lastName: String, mediaURL: String)
+    {
         self.uniqueKey = uniqueKey
         self.firstName = firstName
         self.lastName = lastName

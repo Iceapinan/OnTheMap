@@ -19,6 +19,7 @@ class InfoPostingViewController: UIViewController {
     @IBOutlet weak var findLocationButton: RoundedButton!
     @IBOutlet weak var submitButton: RoundedButton!
     @IBOutlet weak var locationTextField: UITextField!
+    private var mark: CLPlacemark? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +35,34 @@ class InfoPostingViewController: UIViewController {
         submitButton.isHidden = true
     }
     @IBAction func findLocationPressed(_ sender: Any) {
+        if (locationTextField.text?.isEmpty)! {
+            alertShow(title: "Location Not Found", message: "Must Enter a Location")
+        }
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(locationTextField.text!) { (placemark, error) in
+            if let _ = error {
+                self.alertShow(title: "Location Not Found", message: "Could Not Geocode the String")
+            } else {
+                self.mark = placemark?.first
+                DispatchQueue.main.async {
+                    self.configureUI()
+                }
+                self.mapView.showAnnotations([MKPlacemark(placemark: self.mark!)], animated: true)
+            }
+        }
         
     }
     
+    private func configureUI () {
+        mapView.isHidden = false
+        websiteTextField.isHidden = false
+        submitButton.isHidden = false
+        questionLabel.isHidden = true
+        middleSectionView.isHidden = true
+        findLocationButton.isHidden = true
+        topSectionView.backgroundColor = UIColor(red: 81, green: 137, blue: 180, alpha: 1.0)
+        
+    }
     func dismissVC() {
        self.dismiss(animated: true, completion: nil)
     }

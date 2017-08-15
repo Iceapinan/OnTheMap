@@ -33,6 +33,7 @@ struct StudentInformation  {
         updatedAt = dictionary[OTMConstants.JSONResponseKeys.updatedAt]as? String ?? ""
     }
     
+    
     static func studentsFromResults (_ results: [[String:AnyObject]]) -> [StudentInformation] {
         
         var students = [StudentInformation]()

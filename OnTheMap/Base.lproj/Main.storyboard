@@ -385,7 +385,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
-                                <color key="backgroundColor" red="0.31764364242553711" green="0.53736186027526855" blue="0.70456260442733765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.31764705882352939" green="0.53725490196078429" blue="0.70588235294117641" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="375" id="0fq-z4-2KV"/>
                                     <constraint firstItem="04R-Bm-Gsn" firstAttribute="top" secondItem="zvd-bu-76g" secondAttribute="top" constant="8" id="17x-X9-Ahe"/>
