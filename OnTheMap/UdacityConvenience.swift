@@ -10,13 +10,14 @@ import Foundation
 import UIKit
 extension UdacityClient {
     
-    func getUdacityAccountID(email : String, password : String, facebookToken: String?, completionHandler: @escaping (_ userID: String?, _ error: String?) -> Void) {
+    func getUdacityAccountID(email : String?, password : String?, facebookToken: String?, completionHandler: @escaping (_ userID: String?, _ error: String?) -> Void) {
         
         var jsonBody = ""
         if let facebookToken = facebookToken {
             jsonBody = "{\"facebook_mobile\": {\"access_token\": \"\(facebookToken)\"}}"
         }
         else {
+            guard let email = email, let password = password else { return }
             jsonBody = "{\"udacity\": {\"username\": \"\(email)\", \"password\": \"\(password)\"}}"
         }
         let _ = taskForHTTPMethod(OTMConstants.Udacity.Session, httpMethod: .POST, jsonBody: jsonBody) { (results, error) in
@@ -100,14 +101,6 @@ extension UdacityClient {
     }
 }
 
-
-    /* func getUdacitySessionIDWithFacebook (accessToken: String) {
-        
-        let jsonBody = "{\"facebook_mobile\": {\"access_token\": \"\(accessToken)\"}}"
- 
-        
-    } */
-   
 
     
 

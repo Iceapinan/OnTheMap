@@ -23,7 +23,6 @@ extension ParseClient {
                 if let jsonLocationsDictionary = response?.value(forKey: "results") as? [[String:AnyObject]] {
                     
                     let students = StudentInformation.studentsFromResults(jsonLocationsDictionary)
-                    print(students)
                     completionHandler(students, nil)
                     
                 } else {

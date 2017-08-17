@@ -21,7 +21,7 @@ class Storage {
     func forUseAsDataSource() {
         ParseClient.sharedInstance().getStudentLocations { (students, error) in
             if let error = error {
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getStudentLocations Error!!"), object: error)
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getStudentLocations Error"), object: error)
             }
             else {
             guard let students = students else { return }

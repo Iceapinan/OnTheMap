@@ -10,7 +10,6 @@ import UIKit
 
 class TabBarViewController:UITabBarController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -43,7 +42,7 @@ class TabBarViewController:UITabBarController {
     }
     
     @IBAction func refreshPressed(_ sender: Any) {
-        Storage.shared.forUseAsDataSource()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshPressed"), object: nil)
     }
     
     private func presentInfoPostingVC() {

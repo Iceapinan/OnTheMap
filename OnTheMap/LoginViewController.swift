@@ -32,6 +32,7 @@ class LoginViewController: UIViewController {
         let range = signUpString.mutableString.range(of: "Sign Up")
         signUpString.addAttribute(NSForegroundColorAttributeName, value: UIColor.init(red: 22.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1), range: range)
         signUpButton.titleLabel?.attributedText = signUpString
+     
     }
     
     func openSignUpLinkToSafari () {
@@ -48,26 +49,30 @@ class LoginViewController: UIViewController {
            alertShow(title: "Error!", message: "Please enter your password")
         } else {
             activityIndicator.startAnimating()
-            UdacityClient.sharedInstance().getUdacityAccountID(email: emailTextField.text!, password: passwordTextField.text!, facebookToken: nil, completionHandler: { (userID, error) in
-                if let error = error {
-                    DispatchQueue.main.async {
+            loginOTM(email: emailTextField.text!, password: passwordTextField.text!, facebookToken: nil)
+      }
+    }
+    func loginOTM(email : String?, password : String?, facebookToken: String?) {
+        UdacityClient.sharedInstance().getUdacityAccountID(email: email, password: password, facebookToken: facebookToken, completionHandler: { (userID, error) in
+            if let error = error {
+                DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
                     self.alertShow(title: "Error!", message: error)
-                    }
                 }
-                else {
-                    guard let userID = userID else { return }
-                    Storage.shared.uniqueKey = userID
-                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "We got an UserID !!"), object: nil)
-                    UdacityClient.sharedInstance().fetchStudentData(fromAccountID: userID, completionHandler: { (student, error) in
-                        if let error = error {
-                            self.activityIndicator.stopAnimating()
-                            self.alertShow(title: "Error!", message: error)
-                        }
-                        else {
-                           guard let student = student else { return }
-                           Storage.shared.studentLoggedIn = student
-                           DispatchQueue.main.async {
+            }
+            else {
+                guard let userID = userID else { return }
+                Storage.shared.uniqueKey = userID
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "We got an UserID !!"), object: nil)
+                UdacityClient.sharedInstance().fetchStudentData(fromAccountID: userID, completionHandler: { (student, error) in
+                    if let error = error {
+                        self.activityIndicator.stopAnimating()
+                        self.alertShow(title: "Error!", message: error)
+                    }
+                    else {
+                        guard let student = student else { return }
+                        Storage.shared.studentLoggedIn = student
+                        DispatchQueue.main.async {
                             self.activityIndicator.stopAnimating()
                             self.presentViewControllerWithIdentifier(identifier: "loggedInNavigationController", animated: true, completion: {
                                 self.emailTextField.text = ""
@@ -78,10 +83,8 @@ class LoginViewController: UIViewController {
                 })
             }
         })
-       }
     }
 }
-
 extension LoginViewController: FBSDKLoginButtonDelegate {
     
     func currentAccessToken() -> FBSDKAccessToken! {
@@ -96,26 +99,7 @@ extension LoginViewController: FBSDKLoginButtonDelegate {
     }
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if let token = result.token.tokenString {
-            UdacityClient.sharedInstance().getUdacityAccountID(email: "", password: "", facebookToken: token, completionHandler: { (userID, error) in
-                if let error = error {
-                    DispatchQueue.main.async {
-                        self.activityIndicator.stopAnimating()
-                        self.alertShow(title: "Error!", message: error)
-                    }
-                } else {
-                    if let userID = userID {
-                        UdacityClient.sharedInstance().fetchStudentData(fromAccountID: userID, completionHandler: { (student, error) in
-                            DispatchQueue.main.async {
-                                self.activityIndicator.stopAnimating()
-                                self.presentViewControllerWithIdentifier(identifier: "loggedInNavigationController", animated: true, completion: {
-                                    self.emailTextField.text = ""
-                                    self.passwordTextField.text = ""
-                                })
-                            }
-                        })
-                    }
-                }
-            })
+           loginOTM(email: nil, password: nil, facebookToken: token)
         }
     }
     

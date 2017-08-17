@@ -56,6 +56,7 @@
 		F6CDE3561F3869D0008082C2 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		F6CDE3591F386F86008082C2 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		F6DBC5F81F38912E00B625B8 /* ParseConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseConvenience.swift; sourceTree = "<group>"; };
+		F6E570271F455E8C0027275A /* OnTheMap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OnTheMap.entitlements; sourceTree = "<group>"; };
 		F6F1EA321F42E1D5002E136A /* StudentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +129,7 @@
 		F682AC9F1F307A7B00BF29F0 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				F6E570271F455E8C0027275A /* OnTheMap.entitlements */,
 				F62AF5BD1F39879F00EA5CA3 /* OnTheMap-Bridging-Header.h */,
 				F6CDE3581F386B8D008082C2 /* View */,
 				F66188ED1F3223EC00F67B6F /* Controller */,
@@ -194,8 +196,14 @@
 				TargetAttributes = {
 					F682AC9C1F307A7B00BF29F0 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = QD7C83FMRS;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -447,7 +455,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OnTheMap/OnTheMap.entitlements;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QD7C83FMRS;
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -466,7 +476,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = OnTheMap/OnTheMap.entitlements;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = QD7C83FMRS;
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

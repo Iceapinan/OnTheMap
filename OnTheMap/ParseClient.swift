@@ -75,7 +75,6 @@ class ParseClient: NSObject {
         var parsedResult: AnyObject!
         do {
             parsedResult = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as AnyObject
-            print(parsedResult)
             completionHandlerForConvertData(parsedResult, nil)
         } catch {
             completionHandlerForConvertData(nil, "Could not parse the data as JSON: '\(data)'")

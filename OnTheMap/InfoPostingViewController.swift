@@ -36,17 +36,16 @@ class InfoPostingViewController: UIViewController {
                 if let _ = error {
                     self.alertShow(title: "HAHAAH", message: "1234")
                 } else {
+                    DispatchQueue.main.async {
                     Storage.shared.studentLoggedIn?.mediaURL = self.websiteTextField.text!
-                    Storage.shared.forUseAsDataSource()
-                    self.dismiss(animated: true, completion: nil)
+                    }
+                    self.dismiss(animated: true, completion: {  NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshPressed"), object: nil) })
                 }
             })
             
         } else {
-            print("1")
             
         }
-        
     }
     
     @IBAction func findLocationPressed(_ sender: Any) {

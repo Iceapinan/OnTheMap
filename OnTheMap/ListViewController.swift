@@ -14,6 +14,15 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         studentsInfoTableView.delegate = self
         studentsInfoTableView.dataSource = self
+        studentsInfoTableView.reloadData()
+        NotificationCenter.default.addObserver(self, selector: #selector(tableViewReloadData), name: NSNotification.Name(rawValue: "refreshPressed"), object: nil)
+
+    }
+    
+    func tableViewReloadData() {
+        DispatchQueue.main.async {
+        self.studentsInfoTableView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
