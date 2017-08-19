@@ -33,6 +33,9 @@ class MapViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        DispatchQueue.main.async {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+        }
         forUseAsDataSource()
     }
     
@@ -79,6 +82,11 @@ class MapViewController: UIViewController {
             if let error = error {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getStudentLocations Error"), object: error)
                 self.alertShow(title: "", message: error)
+                DispatchQueue.main.async {
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.activityIndicatorView.stopAnimating()
+                    self.view.alpha = 1.0
+                }
             }
                 
             else {

@@ -7,9 +7,9 @@
 //
 
 import UIKit
-
 import FBSDKCoreKit
 import FBSDKLoginKit
+
 class LoginViewController: UIViewController {
     
     // MARK: Properties
@@ -101,31 +101,8 @@ extension LoginViewController : UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    
 }
 
-extension UIViewController {
-    
-    func alertShow(title : String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        DispatchQueue.main.async {
-        alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.cancel, handler: { (alertAction : UIAlertAction!) in
-            alert.dismiss(animated: true, completion: nil)
-        }))
-        self.present(alert, animated: true, completion: nil)
-        }
-    }
-    
-    func presentViewControllerWithIdentifier(identifier: String, animated: Bool = true, completion: (() -> Void)? = nil) {
-        let controller = storyboard!.instantiateViewController(withIdentifier: identifier)
-        DispatchQueue.main.async {
-        self.present(controller, animated: animated, completion: completion)
-        }
-    }
-
-    
-    
-}
 
 
 

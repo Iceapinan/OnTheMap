@@ -90,7 +90,7 @@ class InfoPostingViewController: UIViewController {
                     self.activityIndicatorView.stopAnimating()
                 }
                 self.alertShow(title: "Location Not Found", message: "Could Not Geocode the String")
-                
+            
             } else {
                 self.mark = placemark?.first
                 DispatchQueue.main.async {
@@ -104,15 +104,15 @@ class InfoPostingViewController: UIViewController {
 }
     private func setInitialUI() {
         DispatchQueue.main.async {
+            self.mapView.isHidden = true
+            self.websiteTextField.isHidden = true
+            self.submitButton.isHidden = true
             let highlightedText : NSMutableAttributedString = NSMutableAttributedString(string: "Where are you studying today?")
             highlightedText.addAttributes([NSForegroundColorAttributeName: UIColor.blue], range: NSMakeRange(14, 8))
             self.questionLabel.attributedText = highlightedText
             self.locationTextField.delegate = self
             self.websiteTextField.delegate = self
             self.cancelButton.addTarget(self, action: #selector(self.dismissVC), for: .touchUpInside)
-            self.mapView.isHidden = true
-            self.websiteTextField.isHidden = true
-            self.submitButton.isHidden = true
         }
     }
     

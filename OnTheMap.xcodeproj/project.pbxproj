@@ -23,6 +23,7 @@
 		F682ACA61F307A7B00BF29F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F682ACA41F307A7B00BF29F0 /* Main.storyboard */; };
 		F682ACA81F307A7B00BF29F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F682ACA71F307A7B00BF29F0 /* Assets.xcassets */; };
 		F682ACAB1F307A7B00BF29F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F682ACA91F307A7B00BF29F0 /* LaunchScreen.storyboard */; };
+		F69C39C51F488C0A00BE105D /* PresentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69C39C41F488C0A00BE105D /* PresentViewController.swift */; };
 		F6CDE3551F3862A0008082C2 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDE3541F3862A0008082C2 /* MapViewController.swift */; };
 		F6CDE3571F3869D0008082C2 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDE3561F3869D0008082C2 /* ParseClient.swift */; };
 		F6CDE35A1F386F86008082C2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CDE3591F386F86008082C2 /* ListViewController.swift */; };
@@ -52,6 +53,7 @@
 		F682ACA71F307A7B00BF29F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F682ACAA1F307A7B00BF29F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F682ACAC1F307A7B00BF29F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F69C39C41F488C0A00BE105D /* PresentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentViewController.swift; sourceTree = "<group>"; };
 		F6CDE3541F3862A0008082C2 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F6CDE3561F3869D0008082C2 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		F6CDE3591F386F86008082C2 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		F66188ED1F3223EC00F67B6F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F69C39C41F488C0A00BE105D /* PresentViewController.swift */,
 				F682ACA21F307A7B00BF29F0 /* LoginViewController.swift */,
 				F6CDE3541F3862A0008082C2 /* MapViewController.swift */,
 				F67787491F3DA769001B14F2 /* TabBarViewController.swift */,
@@ -196,6 +199,7 @@
 				TargetAttributes = {
 					F682AC9C1F307A7B00BF29F0 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = QD7C83FMRS;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -304,6 +308,7 @@
 				F682ACA11F307A7B00BF29F0 /* AppDelegate.swift in Sources */,
 				F656963E1F40BE0200837B58 /* RoundedButton.swift in Sources */,
 				F67886081F3754B6004C8F96 /* UdacityConvenience.swift in Sources */,
+				F69C39C51F488C0A00BE105D /* PresentViewController.swift in Sources */,
 				F6CDE3571F3869D0008082C2 /* ParseClient.swift in Sources */,
 				F6CDE3551F3862A0008082C2 /* MapViewController.swift in Sources */,
 				F65696381F40A8E700837B58 /* Storage.swift in Sources */,
@@ -456,7 +461,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = OnTheMap/OnTheMap.entitlements;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QD7C83FMRS;
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -477,7 +482,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = OnTheMap/OnTheMap.entitlements;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = QD7C83FMRS;
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
