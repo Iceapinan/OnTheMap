@@ -38,9 +38,9 @@ class TabBarViewController:UITabBarController {
             }
             else { self.presentInfoPostingVC() }
         })
-        }
     }
-    
+}
+
     @IBAction func refreshPressed(_ sender: Any) {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "refreshPressed"), object: nil)
     }
@@ -58,14 +58,13 @@ class TabBarViewController:UITabBarController {
             }
             else {
                 DispatchQueue.main.async {
-                    self.view.alpha = 1.0
-                    UIApplication.shared.endIgnoringInteractionEvents()
                     self.dismiss(animated: true, completion: nil)
+                    LoginViewController.facebookLoginManager.logOut()
                 }
             }
         }
-        
     }
+    
 }
    
 

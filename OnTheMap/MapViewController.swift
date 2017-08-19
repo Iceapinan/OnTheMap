@@ -12,17 +12,28 @@ import MapKit
 class MapViewController: UIViewController {
     var annotations = [OTMLocation]()
     @IBOutlet weak var mapView: MKMapView!
-
-    override func viewDidLoad()
+    let activityIndicatorView: UIActivityIndicatorView = UIActivityIndicatorView()
+        override func viewDidLoad()
     {
         super.viewDidLoad()
         mapView.delegate = self
         mapView.isRotateEnabled = false
         NotificationCenter.default.addObserver(self, selector: #selector(updateLocations), name: NSNotification.Name(rawValue: "getStudentLocations Finished"), object: nil)
-        Storage.shared.forUseAsDataSource()
         let initialLocation = CLLocation(latitude: 13.736717, longitude: 100.523186)
         centerMapOnLocation(location: initialLocation)
         NotificationCenter.default.addObserver(self, selector: #selector(mapViewAnnotationsReload), name: NSNotification.Name(rawValue: "refreshPressed"), object: nil)
+        activityIndicatorView.frame = CGRect(x:0.0,y: 0.0,width: 40.0, height: 40.0)
+        activityIndicatorView.activityIndicatorViewStyle =
+            UIActivityIndicatorViewStyle.whiteLarge
+        activityIndicatorView.color = UIColor.blue
+        activityIndicatorView.center = CGPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2)
+        activityIndicatorView.isHidden = true
+        self.view.addSubview(activityIndicatorView)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        forUseAsDataSource()
     }
     
     func centerMapOnLocation(location: CLLocation) {
@@ -38,7 +49,7 @@ class MapViewController: UIViewController {
             self.mapView.removeAnnotations(self.mapView.annotations)
         }
         annotations = []
-        Storage.shared.forUseAsDataSource()
+        forUseAsDataSource()
     }
     
     func updateLocations () {
@@ -49,9 +60,35 @@ class MapViewController: UIViewController {
             
             DispatchQueue.main.async {
             self.mapView.addAnnotations(self.annotations)
+                self.activityIndicatorView.isHidden = true
+                self.activityIndicatorView.stopAnimating()
+                self.view.alpha = 1.0
+                UIApplication.shared.endIgnoringInteractionEvents()
             }
         }
     }
+    
+    private func forUseAsDataSource() {
+        DispatchQueue.main.async {
+            self.activityIndicatorView.isHidden = false
+            self.activityIndicatorView.startAnimating()
+            self.view.alpha = 0.5
+            UIApplication.shared.beginIgnoringInteractionEvents()
+        }
+        ParseClient.sharedInstance().getStudentLocations { (students, error) in
+            if let error = error {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getStudentLocations Error"), object: error)
+                self.alertShow(title: "", message: error)
+            }
+                
+            else {
+                guard let students = students else { return }
+                Storage.shared.arrayofStudents = students
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getStudentLocations Finished"), object: nil)
+            }
+        }
+    }
+
 }
 
 extension MapViewController : MKMapViewDelegate {
@@ -81,6 +118,5 @@ extension MapViewController : MKMapViewDelegate {
         }
     }
     
-    
-    
 }
+

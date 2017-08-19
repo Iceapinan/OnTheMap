@@ -18,16 +18,4 @@ class Storage {
     // Udacity AccountID for getting a single student location 😃
     var uniqueKey : String?
     
-    func forUseAsDataSource() {
-        ParseClient.sharedInstance().getStudentLocations { (students, error) in
-            if let error = error {
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getStudentLocations Error"), object: error)
-            }
-            else {
-            guard let students = students else { return }
-            Storage.shared.arrayofStudents = students
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "getStudentLocations Finished"), object: nil)
-        }
-     }
-  }
 }

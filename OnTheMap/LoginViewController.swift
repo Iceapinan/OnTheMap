@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet var loginButton: FBSDKLoginButton!
     
-    let facebookLoginManager = FBSDKLoginManager()
+    static let facebookLoginManager = FBSDKLoginManager()
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +26,24 @@ class LoginViewController: UIViewController {
         passwordTextField.delegate = self
         loginButton = FBSDKLoginButton(frame: loginButton.bounds)
         loginButton.readPermissions = ["public_profile"]
-        loginButton.delegate = self
         signUpButton.addTarget(self, action: #selector(openSignUpLinkToSafari), for: .touchUpInside)
         let signUpString = NSMutableAttributedString(string: "Don't have an account? Sign Up")
         let range = signUpString.mutableString.range(of: "Sign Up")
         signUpString.addAttribute(NSForegroundColorAttributeName, value: UIColor.init(red: 22.0/255.0, green: 122.0/255.0, blue: 255.0/255.0, alpha: 1), range: range)
         signUpButton.titleLabel?.attributedText = signUpString
-     
+        NotificationCenter.default.addObserver(self, selector: #selector(loginWithFacebookToken), name: NSNotification.Name.FBSDKAccessTokenDidChange, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        loginWithFacebookToken()
+    }
+    
+    func loginWithFacebookToken() {
+        if let token = FBSDKAccessToken.current() {
+            activityIndicator.startAnimating()
+            loginOTM(email: nil, password: nil, facebookToken: token.tokenString)
+        }
     }
     
     func openSignUpLinkToSafari () {
@@ -63,7 +74,6 @@ class LoginViewController: UIViewController {
             else {
                 guard let userID = userID else { return }
                 Storage.shared.uniqueKey = userID
-                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "We got an UserID !!"), object: nil)
                 UdacityClient.sharedInstance().fetchStudentData(fromAccountID: userID, completionHandler: { (student, error) in
                     if let error = error {
                         self.activityIndicator.stopAnimating()
@@ -83,28 +93,6 @@ class LoginViewController: UIViewController {
                 })
             }
         })
-    }
-}
-extension LoginViewController: FBSDKLoginButtonDelegate {
-    
-    func currentAccessToken() -> FBSDKAccessToken! {
-        return FBSDKAccessToken.current()
-    }
-    
-    func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool {
-        if self.currentAccessToken() == nil {
-            activityIndicator.startAnimating()
-        }
-        return true
-    }
-    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        if let token = result.token.tokenString {
-           loginOTM(email: nil, password: nil, facebookToken: token)
-        }
-    }
-    
-    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        facebookLoginManager.logOut()
     }
 }
 

@@ -196,7 +196,6 @@
 				TargetAttributes = {
 					F682AC9C1F307A7B00BF29F0 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = QD7C83FMRS;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -457,7 +456,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = OnTheMap/OnTheMap.entitlements;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = QD7C83FMRS;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -478,7 +477,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = OnTheMap/OnTheMap.entitlements;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = QD7C83FMRS;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = OnTheMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
